@@ -4,12 +4,9 @@ using RestaurantsInCities.Data.Models;
 
 namespace RestaurantsInCities.Data
 {
-    public interface IRestService
+    public interface IRestaurantService
     {
-        Task<int> AddCityAsync(City city);
-        Task<City> GetCityByIdAsync(int id);
         Task<int> AddRestaurantAsync(Restaurant restaurant);
-        Task<IEnumerable<Restaurant>> GetAllRestaurantsInCityAsync(int cityId, PagingParams pagingParams);
         Task<Restaurant> GetRestaurantByIdAsync(int id);
     }
 }

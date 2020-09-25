@@ -30,12 +30,14 @@ namespace RestaurantsInCities.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(
+            services.AddDbContext<EfDataContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddScoped<IRestService, RestService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICityService, CityService>();
+            services.AddScoped<IRestaurantService, RestaurantService>();
 
             services.AddSwaggerGen();
         }

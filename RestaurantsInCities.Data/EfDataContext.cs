@@ -1,15 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using RestaurantsInCities.Data.Models;
 
 namespace RestaurantsInCities.Data
 {
-    public class DataContext : DbContext
+    public class EfDataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        public EfDataContext(DbContextOptions<EfDataContext> options) : base(options)
         {
             Database.EnsureCreated();
         }
-        
+
         public DbSet<City> Cities { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
 
